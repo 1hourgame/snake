@@ -5,11 +5,11 @@ const WIDTH = 480;
 const HEIGHT = 640;
 const DISTANCE_BETWEEN_SEGMENTS = 16;
 
-const COLORS = [0xffffff, 0x55ff55, 0xff5555, 0xffff55]
-const COLOR_APPLE = COLORS[2]
-const COLOR_HEAD = COLORS[3]
-const COLOR_BODY = COLORS[1]
-const COLOR_TEXT = COLORS[0]
+const COLORS = [0xffffff, 0x55ff55, 0xff5555, 0xffff55];
+const COLOR_APPLE = COLORS[2];
+const COLOR_HEAD = COLORS[3];
+const COLOR_BODY = COLORS[1];
+const COLOR_TEXT = COLORS[0];
 
 class MyGame extends Phaser.Scene {
   constructor() {
@@ -85,19 +85,18 @@ class MyGame extends Phaser.Scene {
     this.highScore = localStorage.getItem("highScore") || 0;
 
     // Add score text
-    this.scoreText = this.add.text(16, 16, "Score: 0", {
-      fontSize: "12px",
-      fill: `#${COLOR_TEXT.toString(16)}`,
-    }).setScale(3);;
-    this.highScoreText = this.add.text(
-      16,
-      48,
-      "High score: " + this.highScore,
-      {
+    this.scoreText = this.add
+      .text(16, 16, "Score: 0", {
         fontSize: "12px",
         fill: `#${COLOR_TEXT.toString(16)}`,
-      }
-    ).setScale(3);;
+      })
+      .setScale(3);
+    this.highScoreText = this.add
+      .text(16, 48, "High score: " + this.highScore, {
+        fontSize: "12px",
+        fill: `#${COLOR_TEXT.toString(16)}`,
+      })
+      .setScale(3);
   }
 
   update() {
@@ -206,10 +205,12 @@ class MyGame extends Phaser.Scene {
     // Stop the game
     this.physics.pause();
     // Show the game over text
-    this.gameOverText = this.add.text(WIDTH / 2, HEIGHT / 2, "Game over", {
-      fontSize: "16px",
-      fill: `#${COLOR_TEXT.toString(16)}`,
-    }).setScale(3);
+    this.gameOverText = this.add
+      .text(WIDTH / 2, HEIGHT / 2, "Game over", {
+        fontSize: "16px",
+        fill: `#${COLOR_TEXT.toString(16)}`,
+      })
+      .setScale(3);
     this.gameOverText.setOrigin(0.5);
     // Reset the score
     this.score = 0;
